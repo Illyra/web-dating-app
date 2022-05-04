@@ -1,0 +1,46 @@
+.Auth_Actions{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.Auth_Actions form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Auth_Actions input {
+    padding: 8px;
+    margin: 8px;
+    font-size: 17px;
+}
+
+.Closing_Overlay {
+    font-size: 25px;
+    float: right;
+}
+
+.Submit_Button {
+    color: #797777;
+    background-color: white;
+    font-weight: 500px;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: solid 2px #797777;
+    margin: 6px;
+}
+
+.Submit_Button:hover {
+    color: #303030;
+    border: solid 2px #303030;
+}

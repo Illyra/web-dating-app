@@ -1,0 +1,76 @@
+.Detail_Page {
+    border-top: solid #9a9a9a
+}
+
+.Detail_Page form {
+    display: flex;
+    justify-content: center;
+}
+
+.Detail_Page form section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 35%;
+    text-align: start;
+}
+
+.Detail_Page form input {
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 15px;
+    border: solid 2px #dbdbdb;
+    border-radius: 10px
+}
+
+.Detail_Page form label {
+    margin: 10px 0;
+}
+
+.Detail_Page form input::-webkit-outer-spin-button,
+.Detail_Page form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Detail_Page form input[type = radio] {
+    display: none;
+}
+
+.Detail_Page form input[type = radio]:checked + label {
+    border: solid 2px #dd2716;
+}
+
+.Detail_Page form input[type = number] {
+    width: 10%;
+}
+
+.Detail_Page form input[type = submit]:hover {
+    background-color: #ebebeb;
+}
+
+.Detail_Page form input[type = submit]:active {
+    background-color: #8be663;
+}
+
+.Birthday_Inputs, 
+.Input_Gender,
+.Input_Containers {
+    display:flex;
+    flex-direction: row;
+}
+
+.Birthday_Inputs label, 
+.Input_Gender label,
+.Input_Containers label {
+    padding: 10px;
+    border: solid 2px #909090;
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+form .Photo_Icon img{
+    width: 100%
+}
+

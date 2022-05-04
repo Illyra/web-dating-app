@@ -1,0 +1,25 @@
+.Message_Container {
+    background: linear-gradient(45deg, #dda158, #95c62d);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.Image_Container {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.Image_Container .img {
+    width: 100%
+}

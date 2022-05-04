@@ -1,0 +1,33 @@
+.Header_Home {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.HeaderLogo {
+    width: 215px;
+    height: 100%;
+    margin: 15px;
+}
+
+.HeaderLogo .Logo {
+    width: 100%;
+}
+
+.Login_Button {
+    position: relative;
+    top: 84px;
+    height: 100%;
+    color: #f47a55;
+    background-color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+}
+
+.Login_Button:disabled {
+    background-color: #b5b4b4;
+    color: #c12a5a;
+}

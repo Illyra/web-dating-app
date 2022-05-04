@@ -1,0 +1,22 @@
+.input_Button {
+    color: #797777;
+    background-color: white;
+    font-weight: 500px;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: solid 2px #797777;
+    margin: 6px;
+}
+
+.input_Button:hover {
+    color: #303030;
+    border: solid 2px #303030;
+}
+
+.input_chat {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}

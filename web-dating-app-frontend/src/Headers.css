@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    border-bottom: 1px solid #f9f9f9
+}
+
+.header_logo {
+    object-fit: contain;
+    height:200px;
+    width: 100%;
+}
+
+.Person_Icon {
+    padding: 20px;
+    color: rgb(136, 205, 51)
+}
+
+.Chat_Icon {
+    padding: 20px;
+    color:rgb(0, 103, 167)
+}

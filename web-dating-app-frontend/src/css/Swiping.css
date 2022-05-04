@@ -1,0 +1,42 @@
+.Swiping{
+    position: fixed;
+    bottom: 10vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.Swiping .MuiIconButton-root {
+    background-color: white;
+    box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
+}
+
+.Swiping_Repeat {
+    padding: 1.5 !important;
+    color: rgb(162, 224, 162) !important;
+}
+
+.Swiping_Repeat:hover{
+    transform: rotate(720deg);
+    transition: all 0.6s ease-in-out
+}
+
+.Swiping_Left {
+    padding: 4.0 !important;
+    color: rgb(226, 118, 118) !important;
+}
+
+.Swiping_Right {
+    padding: 4.0 !important;
+    color: rgb(233, 20, 20) !important;
+}
+
+.Swiping_Star {
+    padding: 4.0 !important;
+    color: #CCCC00 !important;
+}
+
+.Swiping_SuperLike {
+    padding: 4.0 !important;
+    color: rgb(195, 113, 195) !important;
+}

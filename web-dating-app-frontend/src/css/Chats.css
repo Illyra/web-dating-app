@@ -1,0 +1,24 @@
+.Chat {
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.05), rgba(0,0,0,0.08) 0px 0px 0px 1px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.Option {
+    border: none;
+    background-color: color white;
+    border-bottom: solid 4px rgb(250, 154, 154);
+    font-size: 20px;
+    margin: 2px;
+    padding: 10px;
+}
+
+.Option:disabled {
+    border-bottom: solid 4px #bbbbbb
+}
+
+
+
+
