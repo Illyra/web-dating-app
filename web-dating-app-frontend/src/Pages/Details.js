@@ -29,7 +29,7 @@ const Details = () => {
         e.preventDefault()
         try{
             const response = await axios.put('http://localhost:8080/user', { formData })
-            if(response.statusCode === 200)
+            if(response.status === 200)
             {
                 navigate('/Main')
             }
