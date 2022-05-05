@@ -1,10 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Cards from './DatingCards.js';
-import Cors from 'cors';
+import cors from 'cors';
 import { MongoClient } from 'mongodb';
 import jwt from 'jsonwebtoken';
-import { v1 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import bcrypt from 'bcrypt';
 
 
@@ -13,7 +13,7 @@ const port = process.envPORT || 8080;
 const connectionURL = `mongodb+srv://Illyra:Password2@cluster0.hxapb.mongodb.net/Web-Dating-App?retryWrites=true&w=majority`;
 
 app.use(express.json());
-app.use(Cors());
+app.use(cors());
 
 mongoose.connect(connectionURL, err => {
     if(err) throw err;

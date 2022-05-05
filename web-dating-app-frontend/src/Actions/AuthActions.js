@@ -11,26 +11,24 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
     const [email, setEmail] = useState(null);
     const [err, seterr] = useState(null);
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
     let navigate = useNavigate();
     const handleClicker = () => {
         setAuthAction(false)
     }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
             if (SignUp && (Password !== confirmPassword)) {
                 seterr('Passwords do not match!');
                 return
             }
             const response = await axios.post('http://localhost:8080/signup', { email, Password})
-
-            setCookie = ('email', response.data.email)
-            setCookie = ('authToken', response.data.token)
-            setCookie = ('UserId', response.data.userId)
-            const success = response.status === 201;
-
-            if (success) navigate('/Details')
+            
+            if (response.status === 201){
+                navigate.push('/Details')
+            }
         }
         catch (err) {
             console.log(err);
@@ -50,7 +48,7 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
                     name='Email'
                     placeholder='Email'
                     required={true}
-                    onChange={(event) => setEmail(event.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     type='Password'
@@ -58,7 +56,7 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
                     name='Password'
                     placeholder='Password'
                     required={true}
-                    onChange={(event) => setPassword(event.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
                 {SignUp && <input
                     type='Confirm Password'
@@ -66,7 +64,7 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
                     name='Confirm Password'
                     placeholder='Confirm Password'
                     required={true}
-                    onChange={(event) => setConfirmPassword(event.target.value)}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                 />}
 
                 <input className='Submit_Button' type='Submit' />
