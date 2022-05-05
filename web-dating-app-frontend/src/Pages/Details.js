@@ -4,8 +4,9 @@ import '../css/Details.css'
 import { useState } from 'react'
 
 const Details = () => {
-
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [formData, setFormData] = useState({
+        user_id : cookies.UserId,
         first_name: '',
         birth_day: '',
         birth_month: '',

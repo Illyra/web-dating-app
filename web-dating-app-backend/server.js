@@ -89,6 +89,40 @@ app.post('/login', async(req, res) => {
 
 })
 
+
+app.put('/user', async (req, res) => {
+    const client = new MongoClient(connectionURL);
+    const formData = req.body.formData;
+
+    try {
+        await client.connect()
+        const database = client.db('Web-Dating-App');
+        const users = database.collection('users');
+
+        const query = { user_id: formData.user_id}
+        const updateDoc = {
+            $set : {
+                first_name: formData.first_name,
+                birth_day: formData.birth_day,
+                birth_month: formData.birth_month,
+                birth_year: formData.birth_year,
+                Reveal_Gender: formData.Reveal_Gender,
+                Gender: formData.Gender,
+                Gender_Interest: formData.Gender_Interest,
+                url: formData.url,
+                About: formData.About,
+                matches: formData.matches
+            }
+        }
+        const newUser = await users.updateOne(query, updateDoc);
+        res.send(newUser);
+    }
+    finally
+    {
+        await client.close();
+    }
+})
+
 app.get('/users', async(req, res) => {
     const client = new MongoClient(connectionURL)
 
