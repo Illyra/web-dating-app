@@ -87,7 +87,7 @@ app.post('/login', async(req, res) => {
         console.log(err)
     }
 
-})
+});
 
 
 app.put('/user', async (req, res) => {
@@ -121,7 +121,7 @@ app.put('/user', async (req, res) => {
     {
         await client.close();
     }
-})
+});
 
 app.get('/users', async(req, res) => {
     const client = new MongoClient(connectionURL)
@@ -138,7 +138,26 @@ app.get('/users', async(req, res) => {
         await client.close()
     }
 
-})
+});
+
+
+app.get('/users', async(req, res) => {
+    const client = new MongoClient(connectionURL)
+    const userId = req.query.userId;
+
+    try {
+        await client.connect()
+        const database = client.db('Web-Dating-App')
+        const users = database.collection('users')
+        const query = { user_id: userId }
+        const person = await person.findOne(query)        
+        res.send(person)
+    }
+    finally {
+        await client.close()
+    }
+
+});
 
 //post
 app.post('/web-dating-app/Cards', (req, res) => {

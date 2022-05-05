@@ -2,20 +2,24 @@ import React, { useEffect, useState } from 'react';
 import '../css/DatingCards.css';
 import TinderCard from 'react-tinder-card';
 import axios from '../Components/axios.js';
+import {useCookies} from 'react-cookie'
 
 function DatingCards() {
     const [people, setPeople] = useState([]);
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
+    const userId = cookies.UserId
 
     useEffect(() => {
         async function fetchData() {
-            const req = await axios.get('/web-dating-app/Cards');
+            const req = await axios.get('http://localhost:8080/users', {
+                params: {userId}
+            })
 
             setPeople(req.data);
         }
-
         fetchData();
-    },
-        []);
+    },[]);
 
     const swiped = (direction, nametoDelete) => {
         console.log('removing ' + nametoDelete);
