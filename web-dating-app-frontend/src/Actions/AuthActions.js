@@ -24,14 +24,18 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
                 seterr('Passwords do not match!');
                 return
             }
-            const response = await axios.post('http://localhost:8080/signup', { email, Password})
+            const response = await axios.post(`http://localhost:8080/${SignUp ? 'signup' : 'login'}`, { email, Password})
             
             setCookie('email', response.data.email);
             setCookie('UserId', response.data.userId);
             setCookie('AuthToken', response.data.token);
 
-            if (response.status === 201){
-                navigate('/Details')
+            if (response.status === 201 && SignUp){
+                navigate('/Details');
+            }
+            
+            if (response.status === 201 && !SignUp) {
+                navigate('/Main');
             }
         }
         catch (err) {

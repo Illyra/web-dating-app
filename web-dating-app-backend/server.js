@@ -60,6 +60,33 @@ app.post('/signup', async(req, res) => {
     finally {
         await client.close();
     }
+});
+
+app.post('/login', async(req, res) => {
+    const client = new MongoClient(connectionURL);
+    const { email, Password } = req.body;
+
+    try {
+        await client.connect()
+        const database = client.db('Web-Dating-App');
+        const users = database.collection('users');
+
+        const person = await users.findOne({email});
+
+        const positiveMatch = await bcrypt.compare(Password, password.hashed_password);
+
+        if (person && positiveMatch) {
+            const token = jwt.sign(person, email, {
+                expiresIn: 60 * 24
+            })
+            res.status(201).json({ token, userId: person.user_id, email});
+        }
+        res.status(401).send('Invalid Login Info');
+    }
+    catch(err) {
+        console.log(err)
+    }
+
 })
 
 app.get('/users', async(req, res) => {
