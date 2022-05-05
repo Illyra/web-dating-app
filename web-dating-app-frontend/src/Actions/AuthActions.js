@@ -27,7 +27,7 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
             const response = await axios.post('http://localhost:8080/signup', { email, Password})
             
             if (response.status === 201){
-                navigate.push('/Details')
+                navigate('/Details')
             }
         }
         catch (err) {
