@@ -8,7 +8,7 @@ const HomeAction = ({ minimal, setAuthAction, authAct, setSignUp }) => {
         setSignUp(false);
     };
 
-    const authToken = true;
+    const authToken = false;
 
     return (
         <div className='Header_Home'>
