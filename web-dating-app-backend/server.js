@@ -73,7 +73,7 @@ app.post('/login', async(req, res) => {
 
         const person = await users.findOne({email});
 
-        const positiveMatch = await bcrypt.compare(Password, password.hashed_password);
+        const positiveMatch = await bcrypt.compare(Password, person.hashed_password);
 
         if (person && positiveMatch) {
             const token = jwt.sign(person, email, {
