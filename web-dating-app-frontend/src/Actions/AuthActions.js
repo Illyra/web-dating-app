@@ -3,7 +3,7 @@ import '../css/AuthActions.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { useCookie, useCookies } from 'react-cookie'
+import { useCookies } from 'react-cookie'
 
 const AuthActions = ({ setAuthAction, SignUp }) => {
     const [Password, setPassword] = useState(null);
@@ -25,10 +25,10 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
             }
             const response = await axios.post('http://localhost:8080/signup', { email, Password})
 
-            setCookie = ('Email', response.data.email)
+            setCookie = ('email', response.data.email)
             setCookie = ('authToken', response.data.token)
-            setCookie = ('UserID', response.data.userId)
-            const success = response.status == 201;
+            setCookie = ('UserId', response.data.userId)
+            const success = response.status === 201;
 
             if (success) navigate('/Details')
         }
