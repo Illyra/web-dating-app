@@ -3,8 +3,11 @@ import HomeAction from '../Actions/HomeAction'
 import '../css/Details.css'
 import { useState } from 'react'
 import { useCookies } from 'react-cookie'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Details = () => {
+    let navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [formData, setFormData] = useState({
         user_id : cookies.UserId,
@@ -21,8 +24,20 @@ const Details = () => {
 
     })
 
-    const handleSubmit = () => {
+    const handleSubmit = async(e) => {
         console.log('submit');
+        e.preventDefault()
+        try{
+            const response = await axios.put('http://localhost:8080/user', { formData })
+            if(response.statusCode === 200)
+            {
+                navigate('/Main')
+            }
+        }
+        catch(err)
+        {
+            console.log(err)
+        }
     }
 
     const handleChange = (event) => {
