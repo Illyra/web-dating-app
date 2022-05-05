@@ -2,6 +2,7 @@ import React from 'react'
 import HomeAction from '../Actions/HomeAction'
 import '../css/Details.css'
 import { useState } from 'react'
+import { useCookies } from 'react-cookie'
 
 const Details = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
