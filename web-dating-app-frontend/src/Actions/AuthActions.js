@@ -26,6 +26,10 @@ const AuthActions = ({ setAuthAction, SignUp }) => {
             }
             const response = await axios.post('http://localhost:8080/signup', { email, Password})
             
+            setCookie('email', response.data.email);
+            setCookie('UserId', response.data.userId);
+            setCookie('AuthToken', response.data.token);
+
             if (response.status === 201){
                 navigate('/Details')
             }
